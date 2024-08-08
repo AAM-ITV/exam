@@ -8,12 +8,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            agent { label 'master' } // Указываем, что этот шаг выполняется на Jenkins Master
-            steps {
-                git 'https://github.com/AAM-ITV/exam.git'
-            }
-        }
         stage('Check Terraform Version') {
             agent { label 'master' }
             tools {
