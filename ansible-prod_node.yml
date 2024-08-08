@@ -1,0 +1,22 @@
+---
+- hosts: prod_node
+  become: yes
+  tasks:
+    - name: Install Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Pull Docker image from Docker Hub
+      shell: docker pull aamitv/myapp:latest
+
+    - name: Stop and remove existing container if it exists
+      shell: |
+        docker stop finalapp || true
+        docker rm finalapp || true
+      ignore_errors: yes
+
+    - name: Run Docker container
+      shell: |
+        docker run -d --name finalapp -p 8080:8080 --restart=always aamitv/myapp:latest
