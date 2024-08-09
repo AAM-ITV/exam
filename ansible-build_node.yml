@@ -31,7 +31,7 @@
 
     - name: Login to Docker Hub
       shell: |
-        echo "Createistrue12" | docker login -u "aamitv" --password-stdin
+        echo "your_dockerhub-password" | docker login -u "your_docker-login" --password-stdin
       no_log: true
 
     - name: Push Docker image to Docker Hub
