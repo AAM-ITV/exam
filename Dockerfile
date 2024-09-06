@@ -4,7 +4,7 @@ FROM tomcat:9-jdk11-openjdk-slim
 RUN apt-get update && apt-get install -y git maven
 
 # Clone the repository into the Tomcat webapps directory
-RUN git clone https://github.com/boxfuse/boxfuse-sample-java-war-hello.git /usr/local/tomcat/webapps/hello
+RUN git clone https://github.com/AAM-ITV/exam.git /usr/local/tomcat/webapps/hello
 
 # Set the working directory to the cloned repository
 WORKDIR /usr/local/tomcat/webapps/hello
